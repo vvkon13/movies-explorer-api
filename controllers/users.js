@@ -91,11 +91,6 @@ const findUserById = (userId, res, next) => {
     });
 };
 
-const getUser = (req, res, next) => {
-  const { userId } = req.params;
-  findUserById(userId, res, next);
-};
-
 const getUserMe = (req, res, next) => {
   findUserById(req.user._id, res, next);
 };
@@ -111,7 +106,6 @@ const patchUser = (req, res, next) => {
 module.exports = {
   getUsers,
   createUser,
-  getUser,
   getUserMe,
   patchUser,
   errorHandlerUsers,

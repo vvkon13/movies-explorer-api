@@ -15,7 +15,8 @@ const errorHandlerMovies = (err) => {
 };
 
 const getMovies = (req, res, next) => {
-  Movie.find({})
+  const owner = req.user._id;
+  Movie.find({ owner })
     .then((movie) => {
       res.status(200).send(movie);
     })

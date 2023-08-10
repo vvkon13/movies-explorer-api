@@ -9,7 +9,6 @@ const ERROR_CODE_DUBLICATE = 409;
 const SUCCESS_CREATING_RESOURCE_CODE = 201;
 const ERROR_DEFAULT_MESSAGE = 'Произошла ошибка.';
 const PORT = 3000;
-const JWT_SECRET = 'SpartakChampion2024';
 const REG_EX_URL = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
 const USER_VALIDATION_OBJECT = {
   body: Joi.object().keys({
@@ -56,7 +55,6 @@ module.exports = {
   ERROR_CODE_ALIEN,
   SUCCESS_CREATING_RESOURCE_CODE,
   PORT,
-  JWT_SECRET,
   USER_VALIDATION_OBJECT,
   USER_VALIDATION_OBJECT_NOT_REQUIRED,
   USER_VALIDATION_OBJECT_NO_NAME,

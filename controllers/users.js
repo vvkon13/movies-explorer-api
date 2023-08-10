@@ -4,8 +4,8 @@ const validator = require('validator');
 const { User } = require('../models/user');
 const {
   SUCCESS_CREATING_RESOURCE_CODE,
-  JWT_SECRET,
 } = require('../utils/constants');
+const { JWT_SECRET } = require('../utils/config');
 const IncorrectEmailPasswordError = require('../errors/IncorrectEmailPasswordErr');
 const NotFoundError = require('../errors/NotFoundErr');
 const DublicateError = require('../errors/DublicateErr');
@@ -39,7 +39,7 @@ const login = (req, res, next) => {
       if (!isValidPassword) {
         throw new IncorrectEmailPasswordError('Неправильные почта или пароль');
       }
-      const token = jwt.sign({ _id }, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'SpartakChampion2024', { expiresIn: '7d' });
+      const token = jwt.sign({ _id }, JWT_SECRET, { expiresIn: '7d' });
       res.status(200).send({ token });
     })
     .catch((err) => {

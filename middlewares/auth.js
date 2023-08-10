@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('../utils/constants');
+const { JWT_SECRET } = require('../utils/config');
 const IncorrectEmailPasswordError = require('../errors/IncorrectEmailPasswordErr');
 
 module.exports = (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
   const token = authorization.replace('Bearer ', '');
   let payload;
   try {
-    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'SpartakChampion2024');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     next(new IncorrectEmailPasswordError('Неправильные почта или пароль'));
   }

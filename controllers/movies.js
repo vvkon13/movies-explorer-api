@@ -62,7 +62,7 @@ const createMovie = (req, res, next) => {
 
 const deleteMovie = (req, res, next) => {
   const { movieId } = req.params;
-  Movie.findById(movieId)
+  Movie.findOne({ movieId })
     .then((movie) => {
       if (movie) {
         if (movie.owner.toString() !== req.user._id) {

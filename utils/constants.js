@@ -41,7 +41,6 @@ const USER_VALIDATION_OBJECT_NOT_REQUIRED = {
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     email: Joi.string().email(),
-    password: Joi.string(),
   }),
 };
 

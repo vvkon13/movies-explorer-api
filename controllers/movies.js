@@ -4,7 +4,6 @@ const {
 } = require('../utils/constants');
 
 const ValidationError = require('../errors/ValidationErr');
-const AlienError = require('../errors/AlienErr');
 const NotFoundError = require('../errors/NotFoundErr');
 
 const errorHandlerMovies = (err) => {
@@ -62,12 +61,10 @@ const createMovie = (req, res, next) => {
 
 const deleteMovie = (req, res, next) => {
   const { movieId } = req.params;
-  Movie.findOne({ movieId })
+  const owner = req.user._id;
+  Movie.findOne({ movieId, owner })
     .then((movie) => {
       if (movie) {
-        if (movie.owner.toString() !== req.user._id) {
-          throw new AlienError('Отсутствуют права на удаление фильма.');
-        }
         return Movie.deleteOne(movie)
           .then((element) => res.send(element))
           .catch((err) => {

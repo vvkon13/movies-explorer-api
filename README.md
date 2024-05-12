@@ -9,8 +9,3 @@ API for authenticating users and saving movies. API resource schemas and models 
 
 <img src="https://img.shields.io/badge/JavaScript-2F4F4F?style=for-the-badge&logo=javascript"/> <img src="https://img.shields.io/badge/Node.js-2F4F4F?style=for-the-badge&logo=nodedotjs"/> <img src="https://img.shields.io/badge/MongoDB-2F4F4F?style=for-the-badge&logo=mongodb"/> <img src="https://img.shields.io/badge/Git-2F4F4F?style=for-the-badge&logo=git"/> 
 
-#### [References to the project:](https://api.groundhogday.nomoreparties.co)
-
-Backend https://api.groundhogday.nomoreparties.co
-
-Frontend https://groundhogday.nomoreparties.co
